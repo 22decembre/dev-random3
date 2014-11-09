@@ -60,3 +60,7 @@ PAGE_URL = "{lang}/{slug}.html"
 PAGE_SAVE_AS = "{lang}/{slug}.html"  
 PAGE_LANG_URL = "{lang}/{slug}.html"  
 PAGE_LANG_SAVE_AS = "{lang}/{slug}.html"  
+
+## Live demo ##
+
+The best demo is the author's website : [www.22decembre.eu](http://www.22decembre.eu)
