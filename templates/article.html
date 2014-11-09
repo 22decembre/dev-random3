@@ -43,6 +43,28 @@
             par <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author}}</a><br />
             Mots-clés: {% for tag in article.tags %} #<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}
         </div>
+        
+        {% if article.comments %}
+        <hr />
+		{% for comment in article.comments recursive %}
+			{% if loop.depth0 == 0 %}
+				{% set marginLeft = 0 %}
+			{% else %}
+				{% set marginLeft = 50 %}
+			{% endif %}
+		<article id="comment-{{comment.slug}}">
+                
+                <h4>{{ comment.author }}</h4>
+                <p>Posted on <abbr class="published" title="{{ comment.date.isoformat() }}">{{ comment.locale_date }}</abbr> - <a href="{{ SITEURL }}/{{ article.url }}#comment-{{comment.slug}}" rel="bookmark" title="Permalink to this comment">Permalink</a></p>
+                {{ comment.metadata['my_custom_metadata'] }}
+                {{ comment.content }}
+                {% if comment.replies %}
+                    {{ loop(comment.replies) }}
+                {% endif %}
+		</article>
+		{% endfor %}
+	{% endif %}
+      
       </footer>
       {% if DISQUS_SITENAME %}
       <hr />
