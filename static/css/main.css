@@ -136,6 +136,11 @@ table tr {
 /******************************************************************************/
 
 
+.cacert img {
+	border: none;
+	float: left;
+}
+
 .page-head h1 {
     margin: .7em auto;
 

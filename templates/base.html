@@ -30,9 +30,13 @@
   <body>
     <div class="page">
       <header class="page-head">
+      
+      {% if CACERT %}
 	<div class="cacert">
 		<a href="https://{{ BAREURL }}/{{ output_file }}"><img src="{{ SITEURL }}/theme/img/cacert-hor.png" width=120 /></a>
 	</div>
+	{% endif %}
+	
         <h1>
           <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
         </h1>
