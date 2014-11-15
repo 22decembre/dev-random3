@@ -40,6 +40,18 @@ I placed a links widget. In order to use it, you have to include it in your conf
 LINKS =  (('http://www.22decembre.eu','photos de 22decembre'),   
 	...  
 	('url','linkname'),)  
+	
+## CAcert ##
+
+If you have a cacert enabled website, and want to show it to visitors, let them come with https or not, you can just placed
+
+CACERT = True
+
+in your pelicanconf.
+
+You need also (currently) BAREURL, which show your bare url, without the http. In my case, it gives
+
+BAREURL = 'www.22decembre.eu'
 
 ## Language ##
 
