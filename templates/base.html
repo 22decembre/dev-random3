@@ -6,10 +6,14 @@
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/skeleton.css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/main.css" />
-    <link rel="shortcut icon" type="text/css" href="{{ SITEURL }}/favicon.ico" />
+    
     <link rel="alternate" type="application/atom+xml"
                            title="{{ SITENAME }} — Flux Atom"
                            href="{{ SITEURL }}/{{ FEED }}" /> 
+    {% if SPAMTRAP %}
+	<a href="{{ SPAMTRAP }}"></a>
+    {% endif %}
+    
     {% if FEED_RSS %}
     <link rel ="alternate" type="application/rss+xml"
                            title="{{ SITENAME }} — Flux RSS"
@@ -17,24 +21,18 @@
     {% endif %}
     <!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.js"></script><![endif]-->
     <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-    {% if GOOGLE_ANALYTICS %}
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
-          _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); 
-        ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-    {% endif %}
+  
+  {% include 'piwik.html' %}
+  {% include 'gg_analytics.html' %}
+
   {% endblock headers %}
   </head>
   <body>
     <div class="page">
       <header class="page-head">
+	<div class="cacert">
+		<a href="https://{{ BAREURL }}/{{ output_file }}"><img src="{{ SITEURL }}/theme/img/cacert-hor.png" width=120 /></a>
+	</div>
         <h1>
           <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
         </h1>
