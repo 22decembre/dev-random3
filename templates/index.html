@@ -26,7 +26,8 @@
                 {% for translation in article.translations %}
               <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
                 {% endfor %}
-              {% endif %}
+              {% endif %}<br />
+              Mots-clés: {% for tag in article.tags %} #<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}
           </div>
         </header>
         <div class="post-content"> 
@@ -53,7 +54,7 @@
             {%- if i == articles_page.number %}
         <span class="a active">{{loop.index}}</span>
             {% else %}
-        <a href="{{SITEURL}}/{{ page_name }}{{ ( i if i != 1 else "" ) }}.html">{{loop.index}}</a>
+        <a href="{{ SITEURL }}/{{ page_name }}{{ ( i if i != 1 else "" ) }}.html">{{loop.index}}</a>
             {% endif -%} 
           {% endif -%}
         {% endfor -%}
