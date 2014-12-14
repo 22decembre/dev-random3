@@ -148,22 +148,31 @@ table tr {
     text-align: center;
 }
 
-.post h1:before {
+.page-content h1:before {
   content: "# ";
 }
 
-.page-head h1:before,
-.post .post-header h1:before {
-	  content: "";
-}
-
-.post h2:before {
+.page-content h2:before {
   content: "## ";
 }
 
-.post h3:before {
+.page-content h3:before {
   content: "### ";
 }
+
+.page-content h4:before {
+  content: "#### ";
+}
+
+.page-content h5:before {
+  content: "##### ";
+}
+
+.page-content h6:before {
+  content: "###### ";
+}
+
+
 
 .widget ul li {
     margin: .1em .4em;
