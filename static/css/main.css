@@ -303,7 +303,7 @@ table tr {
 
 // Tag list
 
-ul#tagslist {
+/*ul#tagslist {
     display: block;
     width: 75%;
     margin: 1em auto;
@@ -329,5 +329,29 @@ ul#tagslist li:hover {
     -ms-transform: rotate(0deg) scale(1.2, 1.2) !important;
     -moz-transform: rotate(0deg) scale(1.2, 1.2) !important;
     -webkit-transform: rotate(0deg) scale(1.2, 1.2) !important;
+}*/
+
+ul.tagcloud {
+  list-style: none;
+    padding: 0;
 }
 
+ul.tagcloud li {
+    display: inline-block;
+}
+
+ul.tagcloud li.tag-1 {
+    font-size: 120%;
+}
+
+ul.tagcloud li.tag-2 {
+    font-size: 100%;
+}
+
+ul.tagcloud li.tag-3 {
+    font-size: 80%;
+}
+
+ul.tagcloud li.tag-4 {
+    font-size: 60%;
+}
