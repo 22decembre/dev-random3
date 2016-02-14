@@ -44,6 +44,13 @@
             par <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author}}</a><br />
             Mots-clés: {% for tag in article.tags %} #<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}
         </div>
+       <a href="http://sharetodiaspora.github.io/?title={{ article.title }}&url={{ SITEURL }}/{{ article.url }}" target="_blank">
+	<img src="{{ SITEURL }}/theme/img/diaspora.png" style="border: 0px solid;display: inline-block;vertical-align: middle;" />Diaspora*</a>
+	| <a title="Facebook" href="https://www.facebook.com/sharer.php?u={{ SITEURL }}/{{ article.url }}"><img src="{{ SITEURL }}/theme/img/fb.png" style="border:0;display: inline-block;vertical-align: middle;" alt="Facebook" />Facebook</a>
+	| <a href="https://twitter.com/share"
+	      data-url="{{ SITEURL }}/{{ article.url }}"
+	      data-hashtags="{{ article.tags|join(', ') }}"><img src="{{ SITEURL }}/theme/img/twitter.png" style="border:0;display: inline-block;vertical-align: middle;" alt="Twitter" />Twitter</a>
+	{% if ADDRESS_COM %}| <a href="mailto:{{ ADDRESS_COM }}?subject=Commentaire à propos de {{ article.title }}">Commentaire</a>{% endif %}
         
         {% if article.comments %}
         <hr />
@@ -67,6 +74,7 @@
 	{% endif %}
       
       </footer>
+
       {% if DISQUS_SITENAME %}
       <hr />
       <div id="disqus_thread"></div>
