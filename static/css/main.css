@@ -135,11 +135,6 @@ table tr {
 /*                              Specific Styles                               */
 /******************************************************************************/
 
-.cacert img {
-	border: none;
-	float: left;
-}
-
 .page-head h1 {
     margin: .7em auto;
 
