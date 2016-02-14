@@ -10,9 +10,6 @@
     <link rel="alternate" type="application/atom+xml"
                            title="{{ SITENAME }} — Flux Atom"
                            href="{{ SITEURL }}/{{ FEED }}" /> 
-    {% if SPAMTRAP %}
-	<a href="{{ SPAMTRAP }}"></a>
-    {% endif %}
     
     {% if FEED_RSS %}
     <link rel ="alternate" type="application/rss+xml"
@@ -21,9 +18,10 @@
     {% endif %}
     <!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.js"></script><![endif]-->
     <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-  
-  {% include 'piwik.html' %}
-  {% include 'gg_analytics.html' %}
+
+      {% if SPAMTRAP %}
+	<a href="{{ SPAMTRAP }}"></a>
+    {% endif %}
 
   {% endblock headers %}
   </head>
@@ -31,12 +29,6 @@
     <div class="page">
       <header class="page-head">
       
-      {% if CACERT %}
-	<div class="cacert">
-		<a href="https://{{ BAREURL }}/{{ output_file }}"><img src="{{ SITEURL }}/theme/img/cacert-hor.png" width=120 /></a>
-	</div>
-	{% endif %}
-	
         <h1>
           <a href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
         </h1>
@@ -46,11 +38,11 @@
         {% block content %}
         {% endblock content %}
       </div>
+
       {% include "sidebar.html" %} 
 
       <footer class="page-footer">
-        <p> {{ FOOTER_TEXT or 'Powered by <a href="http://pelican.readthedocs.org">Pelican</a>' }}</p>
-        {% if GITHUB_URL %}<p><a id="github-link" href="{{ GITHUB_URL}}">Fork me on Github</a></p>{% endif %}
+        <p> {{ FOOTER_TEXT or 'Porté par <a href="http://pelican.readthedocs.org">Pelican</a> et <a href="http://www.openbsd.org/">OpenBSD</a>' }}</p>
       </footer>
     </div>
   </body>
