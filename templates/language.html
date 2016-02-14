@@ -1,5 +1,9 @@
+{% set DEFAULT_LANG = language_name %}
 {% extends "index.html" %}
 
 {% block title %}{{ super() }} — Articles in «{{ language_name }}»{% endblock %}
 
+
 {% block index_title %}Articles in <i>«{{ language_name }}»</i> :{% endblock %}
+
+{% block subtitle %}<p><a href="feed/atom.xml" rel="alternate">Flux Atom</a> - <a href="feed/rss.xml" rel="alternate">Flux RSS</a><p>{% endblock %}
