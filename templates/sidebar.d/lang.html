@@ -1,8 +1,24 @@
 <nav class="widget">
-   <h3>Languages</h3>
-   <ul>
+      <ul>
       {% for code,name,url in LANGUAGES %}
           <li><a href="{{ SITEURL }}/{{ url }}" rel="alternate">{{ name }}</a></li>
+	    {% if code == DEFAULT_LANG %}
+		{% if DISPLAY_PAGES_ON_MENU %}
+		    <ul>
+		    {% for p in PAGES %}
+			{% if p.lang == DEFAULT_LANG %}
+			    <li><a href="{{ SITEURL}}/{{ p.url|e }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a></li>
+			{% endif %}
+			{% for trans in p.translations %}
+			    {% if trans.lang == DEFAULT_LANG %}
+			    <li><a href="{{ SITEURL}}/{{ trans.url|e }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a></li>
+			    {% endif %}
+			 {% endfor %}
+		    {% endfor %}
+		    </ul>
+		{% endif %}
+          {% endif %}
+      
       {% endfor %}
    </ul>   
 </nav>

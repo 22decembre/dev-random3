@@ -1,44 +1,49 @@
     <aside class="page-sidebar">
       <nav class="widget">
       <h3>Site</h3>
-
-      <ul>
+      
+	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+		<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
+	</a>
+      {% if LANGUAGES %}
+       {% include "sidebar.d/lang.html" %}
+       {% endif %}
+       </nav>
+     <!-- <ul>
           <li><a href="{{ SITEURL }}">Accueil</a></li>
-          <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
-          <li><a href="{{ SITEURL }}/tags.html">Mots-clés</a></li>
-       {% if MENUITEMS %}
+          {% if MENUITEMS %}
           {% for name, uri in MENUITEMS %}
           <li><a href="{{ uri|format(SITEURL)|e}}">{{ name }}</a></li>
           {% endfor %}
-        {% endif %}
-       {% if DISPLAY_PAGES_ON_MENU %}
+          {% endif %}
+          {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in PAGES %}
           <li><a href="{{ SITEURL}}/{{ p.url|e }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a></li>
           {% endfor %}
-        {% endif %}
-        </ul>
+          {% endif %}
+        </ul>-->
 
-      <script id='fbva5se'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=22decembre&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbva5se');</script>
+<!--	<br />-->
 
-      </nav>
+      
 
       {# by moving piece of three code lines, you can move up, down or remove each widget #}
       
-     {% if categories %}
-     {% include "sidebar.d/categories.html" %}
-     {% endif %}
+      {% if categories %}
+      {% include "sidebar.d/categories.html" %}
+      {% endif %}
+ 
+      {% if SOCIAL %}
+      {% include "sidebar.d/social.html" %}
+      {% endif %}
+       
 
-     {% if SOCIAL %}
-     {% include "sidebar.d/social.html" %}
-     {% endif %}
-      
-      {% if LANGUAGES %}
-      {% include "sidebar.d/lang.html" %}
-      {% endif %}
-      
-      {% if LINKS %}
-      {% include "sidebar.d/links.html" %} 
-      {% endif %}
-      
-      {% include "sidebar.d/tag_cloud.html" %} 
+       
+       {% if LINKS %}
+       {% include "sidebar.d/links.html" %} 
+       {% endif %}
+       
+       {% include "sidebar.d/tag_cloud.html" %}
+       
+       <!--</nav>-->
     </aside>
